@@ -16,7 +16,7 @@ app.use(jwt({ secret: process.env.AUTH_JWT_SECRET }).unless({ path: ['/auth/sign
 require('./app/routes')(app);
 
 if (!module.parent) {
-  app.listen(process.env.APP_PORT, process.env.APP_HOST, () => {
-    console.log(`Listen on: ${process.env.APP_HOST}:${process.env.APP_PORT}`);
+  app.listen(process.env.PORT, process.env.HOST, () => {
+    console.log(`Listen on: ${process.env.HOST}:${process.env.PORT}`);
   });
 }
