@@ -11,7 +11,6 @@ require('koa-validate')(app);
 
 app.use(require('./lib/response'));
 require('./lib/acl')(app);
-app.use(require('./lib/validation')());
 
 app.use(jwt({ secret: process.env.AUTH_JWT_SECRET }).unless({ path: ['/auth/sign-in', '/auth/sign-up'] }));
 require('./app/routes')(app);
