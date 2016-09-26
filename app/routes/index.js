@@ -1,8 +1,10 @@
 
-const auth = require('./auth');
-const reports = require('./reports');
+const glob = require('glob');
 
 module.exports = app => {
-  auth(app);
-  reports(app);
+  glob.sync('**.js', { cwd: __dirname })
+    .map(file => __dirname + '/' + file)
+    .filter(path => path !== __filename)
+    .map(require)
+    .forEach(router => router(app));
 };
