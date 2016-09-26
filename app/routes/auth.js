@@ -8,7 +8,6 @@ module.exports = app => {
 
   router.post('/sign-in', app.acl.can(permissions.AUTH_SIGN_IN), controller.signIn);
   router.post('/sign-up', app.acl.can(permissions.AUTH_SIGN_UP), controller.signUp);
-  router.post('/sign-out', app.acl.can(permissions.AUTH_SIGN_OUT), controller.signOut);
 
   app.use(router.routes());
   app.use(router.allowedMethods());

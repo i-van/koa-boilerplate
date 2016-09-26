@@ -5,7 +5,6 @@ const ROLE_ADMIN = 'admin';
 
 const AUTH_SIGN_UP = 'auth:sign-up';
 const AUTH_SIGN_IN = 'auth:sign-in';
-const AUTH_SIGN_OUT = 'auth:sign-out';
 
 const REPORTS_VIEW   = 'users:view';
 const REPORTS_EDIT   = 'users:edit';
@@ -29,6 +28,6 @@ module.exports = {
 
   rules: {
     [ROLE_GUEST]: [AUTH_SIGN_IN, AUTH_SIGN_UP],
-    [ROLE_USER]: [AUTH_SIGN_OUT, ...REPORTS],
+    [ROLE_USER]: [...REPORTS],
   }
 };

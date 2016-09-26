@@ -9,7 +9,7 @@ const ROLES = [ROLE_GUEST, ROLE_USER];
 
 const schema = new mongoose.Schema({
   email:     { type: String, trim: true, required: true, unique: true, validate: validate({ validator: 'isEmail' }) },
-  password:  { type: String, trim: true, required: true, select: false },
+  password:  { type: String, trim: true, required: true },
   role:      { type: String, trim: true, required: true, default: ROLE_USER, enum: ROLES },
   firstName: { type: String, trim: true, required: true },
   lastName:  { type: String, trim: true, required: true }
@@ -31,8 +31,18 @@ schema.pre('save', function preSave(next) {
   });
 });
 
+schema.methods.toJSON = function toJSON() {
+  return {
+    id: this._id,
+    firstName: this.firstName,
+    lastName: this.lastName,
+    email: this.email,
+    role: this.role
+  };
+};
+
 schema.statics.authenticate = function* authenticate(email, password) {
-  const user = yield this.findOne({ email }).select('email password role firstName lastName').exec();
+  const user = yield this.findOne({ email }).exec();
   if (!user) {
     throw new Error('Wrong email or password');
   }
@@ -42,4 +52,4 @@ schema.statics.authenticate = function* authenticate(email, password) {
   return user;
 };
 
-module.export = mongoose.model('User', schema);
+module.exports = mongoose.model('User', schema);

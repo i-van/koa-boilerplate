@@ -4,9 +4,12 @@ const User = require('../models/user');
 
 module.exports = {
   * signUp() {
-    const user = new User(this.request.body);
-    yield user.save();
-    this.body = user;
+    this.checkBody('password').notEmpty().len(6, 20).trim();
+    if (this.errors) {
+      this.throw(422);
+    }
+
+    this.body = yield User.create(this.request.body);
     this.status = 201;
   },
 
@@ -26,12 +29,7 @@ module.exports = {
       this.throw(422, err.message);
     }
 
-    const token = jwt.sign(user, this.config.auth.jwt.secret, { expiresInMinutes: 60 * 5 });
+    const token = jwt.sign(user.toJSON(), process.env.AUTH_JWT_SECRET, { expiresInMinutes: 60 * 5 });
     this.body = { token };
-  },
-
-  * signOut() {
-    delete this.state.user;
-    this.status = 201;
   }
 };
