@@ -6,10 +6,10 @@ const ROLE_ADMIN = 'admin';
 const AUTH_SIGN_UP = 'auth:sign-up';
 const AUTH_SIGN_IN = 'auth:sign-in';
 
-const REPORTS_VIEW   = 'users:view';
-const REPORTS_EDIT   = 'users:edit';
-const REPORTS_CREATE = 'users:create';
-const REPORTS_REMOVE = 'users:remove';
+const REPORTS_VIEW   = 'reports:view';
+const REPORTS_EDIT   = 'reports:edit';
+const REPORTS_CREATE = 'reports:create';
+const REPORTS_REMOVE = 'reports:remove';
 const REPORTS = [REPORTS_VIEW, REPORTS_EDIT, REPORTS_CREATE, REPORTS_REMOVE];
 
 module.exports = {
@@ -19,7 +19,6 @@ module.exports = {
 
   AUTH_SIGN_UP: AUTH_SIGN_UP,
   AUTH_SIGN_IN: AUTH_SIGN_IN,
-  AUTH_SIGN_OUT: AUTH_SIGN_OUT,
 
   REPORTS_VIEW: REPORTS_VIEW,
   REPORTS_EDIT: REPORTS_EDIT,
