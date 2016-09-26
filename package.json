@@ -20,7 +20,6 @@
     "koa-cors": "0.0.16",
     "koa-jwt": "^1.2.0",
     "koa-logger": "^1.3.0",
-    "koa-resource-router": "^0.4.0",
     "koa-roles": "^1.0.2",
     "koa-router": "^5.4.0",
     "koa-validate": "^1.0.6",
