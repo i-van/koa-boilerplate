@@ -13,7 +13,7 @@ app.use(swagger.init({
   swaggerURL: '/swagger',
   swaggerJSON: '/api-docs.json',
   swaggerUI: './public/swagger/',
-  apis: ['./auth.yml']
+  apis: ['./auth.yml', './reports.yml']
 }));
 
 app.use(serve(__dirname + '/public'));
