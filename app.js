@@ -2,7 +2,21 @@
 require('./bootstrap');
 
 const app = module.exports = require('koa')();
+const swagger = require('swagger-koa');
+const serve = require('koa-static');
 const jwt = require('koa-jwt');
+
+app.use(swagger.init({
+  apiVersion: '1.0',
+  swaggerVersion: '2.2.5',
+  basePath: `http://${process.env.HOST}:${process.env.PORT}`,
+  swaggerURL: '/swagger',
+  swaggerJSON: '/api-docs.json',
+  swaggerUI: './public/swagger/',
+  apis: ['./auth.yml']
+}));
+
+app.use(serve(__dirname + '/public'));
 
 app.use(require('koa-logger')());
 app.use(require('koa-bodyparser')());

@@ -32,6 +32,7 @@
     "mongoose-unique-validator": "1.0.2",
     "mongoose-validator": "1.2.5",
     "monky": "0.6.10",
+    "swagger-koa": "^1.0.10",
     "validator": "5.7.0"
   }
 }
