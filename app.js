@@ -9,7 +9,7 @@ const jwt = require('koa-jwt');
 app.use(swagger.init({
   apiVersion: '1.0',
   swaggerVersion: '2.2.5',
-  basePath: `http://${process.env.HOST}:${process.env.PORT}`,
+  basePath: process.env.BASE_PATH || `http://${process.env.HOST}:${process.env.PORT}`,
   swaggerURL: '/swagger',
   swaggerJSON: '/api-docs.json',
   swaggerUI: './public/swagger/',
