@@ -1,0 +1,5 @@
+--require ./test/bootstrap
+--reporter spec
+--ui bdd
+--timeout 30s
+--recursive

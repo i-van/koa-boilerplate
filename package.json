@@ -14,7 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "0.8.7",
-    "chai": "3.5.0",
     "dotenv": "2.0.0",
     "glob": "7.1.0",
     "koa": "1.2.4",
@@ -31,5 +30,10 @@
     "mongoose-validator": "1.2.5",
     "swagger-koa": "^1.0.10",
     "validator": "5.7.0"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "mocha": "^3.1.0",
+    "supertest": "2.0.0"
   }
 }
