@@ -15,9 +15,7 @@
   "dependencies": {
     "bcrypt": "0.8.7",
     "chai": "3.5.0",
-    "chai-http": "3.0.0",
     "dotenv": "2.0.0",
-    "faker": "3.1.0",
     "glob": "7.1.0",
     "koa": "1.2.4",
     "koa-bodyparser": "2.2.0",
@@ -31,7 +29,6 @@
     "mongoose-timestamp": "0.6.0",
     "mongoose-unique-validator": "1.0.2",
     "mongoose-validator": "1.2.5",
-    "monky": "0.6.10",
     "swagger-koa": "^1.0.10",
     "validator": "5.7.0"
   }
